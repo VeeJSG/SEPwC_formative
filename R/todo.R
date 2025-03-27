@@ -5,17 +5,16 @@ suppressPackageStartupMessages({
 suppressPackageStartupMessages({
   library(testthat)
 })
-TASK_FILE <- ".tasks.txt" # nolint
+
+TASK_FILE <- "Tasks.txt" # nolint
 
 add_task <- function(task) {
 
 }
 
 list_tasks <- function() {
-  task_list <- c()
+  print(TASK_FILE)
   print("Works")
-  print(task_list)
-  print("Still works")
 }
 
 remove_task <- function(index) {
