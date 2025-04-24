@@ -14,8 +14,13 @@ list_tasks <- function() {
   counter <- 1
   output_string <- ""
   for (item in tasks) {
-    output_string <- paste0(output_string, counter, ".", item, "\n")
+    if (counter < 5) {
+      output_string <- paste0(output_string, counter, ". ", item, "\n")
     counter <- counter + 1
+    }
+    else {
+      output_string <- paste0(output_string, counter, ". ", item)
+    }
   }
   print(output_string)
 }
