@@ -22,14 +22,30 @@ list_tasks <- function() {
       output_string <- paste0(output_string, counter, ". ", item) #Removes \n from the end of the list
     }
   }
-  print(output_string)
+  return(output_string)
 }
-list_tasks()
 
 
 remove_task <- function(index) {
-
-}
+  tasks <- readLines(TASK_FILE)
+  for (i in seq(1,length(tasks),1)) {
+    if (i == index) {
+      tasks <- tasks[-i]
+      counter <- 1
+      output_string <- ""
+      for (item in tasks) {
+        if (counter < length(tasks)) { #Looks for the end of the task list
+          output_string <- paste0(output_string, counter, ". ", item, "\n")
+          counter <- counter + 1
+        }
+        else {
+          output_string <- paste0(output_string, counter, ". ", item) #Removes \n from the end of the list
+        }
+      }
+      return(output_string)
+    }
+    }
+  }
 
 main <- function(args) {
 
@@ -47,7 +63,7 @@ main <- function(args) {
 
 
 if (sys.nframe() == 0) {
-
+  
   # main program, called via Rscript
   parser <- ArgumentParser(description = "Command-line Todo List")
   parser$add_argument("-a", "--add",
@@ -57,8 +73,7 @@ if (sys.nframe() == 0) {
                       help = "List all tasks")
   parser$add_argument("-r", "--remove",
                       help = "Remove a task by index")
-
+  
   args <- parser$parse_args()
   main(args)
 }
-

@@ -29,29 +29,29 @@ test_that("list_tasks works correctly", {
   expect_equal(task_list, expected_list)
 })
 
-##test_that("remove_task works correctly", {
-##  # Assuming test_file is defined and the necessary setup is done
+test_that("remove_task works correctly", {
+  # Assuming test_file is defined and the necessary setup is done
   
-#  temp_list <- ".temp_test.txt"
-#  file.copy(test_file, temp_list, overwrite=TRUE)
-#  TASK_FILE <<- temp_list
+  temp_list <- ".temp_test.txt"
+  file.copy(test_file, temp_list, overwrite=TRUE)
+  TASK_FILE <<- temp_list
   
   # Test invalid index (should error)
-#  expect_error(remove_task(0))
+  expect_error(remove_task(0))
   
-#  # Test invalid index (should error)
-#  expect_error(remove_task(10))
+  # Test invalid index (should error)
+  expect_error(remove_task(10))
   
   # Remove the first task
-#  remove_task(1)
+  remove_task(1)
   
-#  task_list <- list_tasks()
-#  new_expected <- "1. Item 2\n2. Item 3\n3. Item 4\n4. Item 5"
+  task_list <- list_tasks()
+  new_expected <- "1. Item 2\n2. Item 3\n3. Item 4\n4. Item 5"
   
-#  expect_equal(task_list, new_expected)
+  expect_equal(task_list, new_expected)
   
-#  file.remove(temp_list)
-#})
+  file.remove(temp_list)
+})
 
 ##test_that("add_task works correctly", {
   # Assuming test_file is defined and the necessary setup is done
