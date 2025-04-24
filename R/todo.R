@@ -3,23 +3,23 @@ suppressPackageStartupMessages({
   library(argparse)
 })
 
-TASK_FILE <- ".tasks.txt" # nolint
+TASK_FILE <- "test_list.txt" # nolint
 
 add_task <- function(task) {
 
 }
 
 list_tasks <- function() {
-  tasks <- readLines("test_list.txt")
+  tasks <- readLines(TASK_FILE)
   counter <- 1
   output_string <- ""
   for (item in tasks) {
-    if (counter < 5) {
+    if (counter < length(tasks)) { #Looks for the end of the task list
       output_string <- paste0(output_string, counter, ". ", item, "\n")
     counter <- counter + 1
     }
     else {
-      output_string <- paste0(output_string, counter, ". ", item)
+      output_string <- paste0(output_string, counter, ". ", item) #Removes \n from the end of the list
     }
   }
   print(output_string)
