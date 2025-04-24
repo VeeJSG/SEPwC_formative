@@ -2,19 +2,15 @@
 suppressPackageStartupMessages({
   library(argparse)
 })
-suppressPackageStartupMessages({
-  library(testthat)
-})
 
-TASK_FILE <- "Tasks.txt" # nolint
+TASK_FILE <- ".tasks.txt" # nolint
 
 add_task <- function(task) {
 
 }
 
 list_tasks <- function() {
-  print(TASK_FILE)
-  print("Works")
+
 }
 
 remove_task <- function(index) {
@@ -51,4 +47,3 @@ if (sys.nframe() == 0) {
   args <- parser$parse_args()
   main(args)
 }
-
