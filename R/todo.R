@@ -10,8 +10,17 @@ add_task <- function(task) {
 }
 
 list_tasks <- function() {
-
+  tasks <- readLines("test_list.txt")
+  counter <- 1
+  output_string <- ""
+  for (item in tasks) {
+    output_string <- paste0(output_string, counter, ".", item, "\n")
+    counter <- counter + 1
+  }
+  print(output_string)
 }
+list_tasks()
+
 
 remove_task <- function(index) {
 
@@ -47,3 +56,4 @@ if (sys.nframe() == 0) {
   args <- parser$parse_args()
   main(args)
 }
+
