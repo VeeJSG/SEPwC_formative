@@ -13,13 +13,13 @@ list_tasks <- function() {
   tasks <- readLines(TASK_FILE)
   counter <- 1
   output_string <- ""
-  for (item in tasks) {
+  for (task in tasks) {
     if (counter < length(tasks)) { #Looks for the end of the task list
-      output_string <- paste0(output_string, counter, ". ", item, "\n")
+      output_string <- paste0(output_string, counter, ". ", task, "\n")
     counter <- counter + 1
     }
     else {
-      output_string <- paste0(output_string, counter, ". ", item) #Removes \n from the end of the list
+      output_string <- paste0(output_string, counter, ". ", task) #Removes \n from the end of the list
     }
   }
   return(output_string)
@@ -28,24 +28,14 @@ list_tasks <- function() {
 
 remove_task <- function(index) {
   tasks <- readLines(TASK_FILE)
-  for (i in seq(1,length(tasks),1)) {
-    if (i == index) {
-      tasks <- tasks[-i]
-      counter <- 1
-      output_string <- ""
-      for (item in tasks) {
-        if (counter < length(tasks)) { #Looks for the end of the task list
-          output_string <- paste0(output_string, counter, ". ", item, "\n")
-          counter <- counter + 1
-        }
-        else {
-          output_string <- paste0(output_string, counter, ". ", item) #Removes \n from the end of the list
-        }
-      }
-      return(output_string)
+  task_removed <- readLines(file("stdin"),1)
+  for (task in tasks) {
+    if (task_removed==task) {
+      print(tasks)
     }
     }
   }
+
 
 main <- function(args) {
 
